@@ -135,7 +135,7 @@ def main(
     dataset = create_datasets(compounds, profiles)
     train_len = int(len(dataset)*0.9)
     train_set = dataset.take(train_len)
-    valid_set = dataset.take(train_len)
+    valid_set = dataset.skip(train_len)
     train(train_set, valid_set, epochs, compounds.shape[1], profiles.shape[1])
 
 
